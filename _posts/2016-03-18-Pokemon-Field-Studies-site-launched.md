@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hank Quinlan, Horrible Cop, Launches Site"
+title: "I herd u lyk jekylz"
 date: 2016-03-18
 ---
 
