@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Pokemon Field Studies Site Launch"
+title: "Pokemon Field Studies Site Launched"
 date: 2016-03-19
 ---
 
