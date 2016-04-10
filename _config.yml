@@ -1,3 +1,4 @@
 name: Pokemon Field Studies
 markdown: kramdown
 permalink: blog/:year/:month/:day/:title
+baseurl: /Pokemon_FieldStudies
