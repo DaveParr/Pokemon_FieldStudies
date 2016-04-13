@@ -9,7 +9,7 @@ What follows is a transcription of the first known efforts of Pokemon Field Stud
 Truly the most ridiculous thing I could think of.
 Change to FALSE if you don't want packages installed.
 
-```r
+```{r}
 doInstall <- TRUE  
 toInstall <- c("XML", "png", "devtools", "RCurl")
 if(doInstall){install.packages(toInstall, repos = "http://cran.r-project.org")}
@@ -19,7 +19,7 @@ if(doInstall){install.packages(toInstall, repos = "http://cran.r-project.org")}
 ## Error in install.packages : Updating loaded packages
 ```
 
-```r
+```{r}
 lapply(toInstall, library, character.only = TRUE)
 ```
 
@@ -48,34 +48,21 @@ lapply(toInstall, library, character.only = TRUE)
 Some helper functions, lineFinder and makeTable
 
 
-```r
+```{r}
 source_gist("818983")
-```
-
-```
 ## Sourcing https://gist.githubusercontent.com/dsparks/818983/raw/315878a59c392a65b176a43c4903b3ede6b67864/LineFinder.R
-```
-
-```
 ## SHA-1 hash of file is ddeec1de75a917f6a1e0780efb8c99137789a412
 ```
 
-```r
+```{r}
 source_gist("818986")
-```
-
-```
 ## Sourcing https://gist.githubusercontent.com/dsparks/818986/raw/2af8efd88307cbbe7941d6be98834f166c56fc61/MakeTable.R
-```
-
-```
 ## SHA-1 hash of file is 9f922d395b04ac8aadea1e2c6cf91590be6e0d6d
 ```
 
 In as few lines as possible, get statistics on each Pokemon
 
-
-```r
+```{r}
 importHTML <- readLines("http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_I)")
 theTable <- readHTMLTable(importHTML)
 pokeTable <- theTable[[1]][, -2]
@@ -86,33 +73,20 @@ pokeTable[, 2] <- as.character(pokeTable[, 2])
 head(pokeTable)
 ```
 
-```
-##   N       Name  HP  Attack  Defense  Speed  Special  Total  Average
-## 1 1  Bulbasaur  45      49       49     45       65    253     50.6
-## 2 2    Ivysaur  60      62       63     60       80    325     65.0
-## 3 3   Venusaur  80      82       83     80      100    425     85.0
-## 4 4 Charmander  39      52       43     65       50    249     49.8
-## 5 5 Charmeleon  58      64       58     80       65    325     65.0
-## 6 6  Charizard  78      84       78    100       85    425     85.0
-```
-
 And find URLs for images of each
 
-
-```r
+```{r}
 pngURLs <- importHTML[lineFinder("http://cdn.bulbagarden.net/upload/",
                                  importHTML)]
 pngURLs <- makeTable(makeTable(pngURLs, "src=\"")[, 2],
                      "\" width=\"40\"")[, 1]
 ```
 
-Downloads & loads PNGs
-# And assigns them to a list.
+Downloads & loads PNGs and assigns them to a list.
 CAUTION: The following script will literally download 151 .PNG images of
 Pokemon. Please be considerate, and don't run this more than you need to.
 
-
-```r
+```{r}
 pngList <- list()
 for(ii in 1:nrow(pokeTable)){
   tempName <- pokeTable[ii, "Name"]
@@ -125,7 +99,7 @@ First time implemented in R
 Look for it on CRAN
 
 
-```r
+```{r}
 iChooseYou <- function(pm){plot(1, 1)  
                            rasterImage(pngList[[pm]], 0.5, 0.5, 1.5, 1.5)                           
                            }
@@ -137,7 +111,7 @@ iChooseYou("Pikachu")
 Principal component analysis
 
 
-```r
+```{r}
 PCA <- prcomp((pokeTable[, 3:7]))
 biplot(PCA)  # To illustrate similarity of dimensions and individuals
 ```
@@ -147,7 +121,7 @@ biplot(PCA)  # To illustrate similarity of dimensions and individuals
 Plot:
 
 
-```r
+```{r}
 boxParameter <- 5  
 plot(PCA$x, type = "n",
      xlab = "Overall stats >",
@@ -166,11 +140,7 @@ for(ii in 1:length(pngList)){
 Optional labels:
 
 
-```r
+```{r}
 text(PCA$x[, 1:2], label = pokeTable$Name, adj = c(1/2, 3))
-```
-
-```
-## Error in text.default(PCA$x[, 1:2], label = pokeTable$Name, adj = c(1/2, : plot.new has not been called yet
 ```
 
