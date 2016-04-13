@@ -132,7 +132,7 @@ iChooseYou <- function(pm){plot(1, 1)
 iChooseYou("Pikachu")  
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-6]({{ site.github.url  }}/figure/unnamed-chunk-6-1.png)
 
 Principal component analysis
 
@@ -142,7 +142,7 @@ PCA <- prcomp((pokeTable[, 3:7]))
 biplot(PCA)  # To illustrate similarity of dimensions and individuals
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-7]({{ site.github.url  }}/figure/unnamed-chunk-7-1.png)
 
 Plot:
 
@@ -161,7 +161,7 @@ for(ii in 1:length(pngList)){
   }  
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-8]({{ site.github.url  }}/figure/unnamed-chunk-8-1.png)
 
 Optional labels:
 
