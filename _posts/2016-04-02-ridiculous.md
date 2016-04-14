@@ -15,34 +15,8 @@ toInstall <- c("XML", "png", "devtools", "RCurl")
 if(doInstall){install.packages(toInstall, repos = "http://cran.r-project.org")}
 ```
 
-```
-## Error in install.packages : Updating loaded packages
-```
-
 ```{r}
 lapply(toInstall, library, character.only = TRUE)
-```
-
-```
-## [[1]]
-##  [1] "knitr"     "RCurl"     "bitops"    "devtools"  "png"      
-##  [6] "XML"       "stats"     "graphics"  "grDevices" "utils"    
-## [11] "datasets"  "methods"   "base"     
-## 
-## [[2]]
-##  [1] "knitr"     "RCurl"     "bitops"    "devtools"  "png"      
-##  [6] "XML"       "stats"     "graphics"  "grDevices" "utils"    
-## [11] "datasets"  "methods"   "base"     
-## 
-## [[3]]
-##  [1] "knitr"     "RCurl"     "bitops"    "devtools"  "png"      
-##  [6] "XML"       "stats"     "graphics"  "grDevices" "utils"    
-## [11] "datasets"  "methods"   "base"     
-## 
-## [[4]]
-##  [1] "knitr"     "RCurl"     "bitops"    "devtools"  "png"      
-##  [6] "XML"       "stats"     "graphics"  "grDevices" "utils"    
-## [11] "datasets"  "methods"   "base"
 ```
 
 Some helper functions, lineFinder and makeTable
