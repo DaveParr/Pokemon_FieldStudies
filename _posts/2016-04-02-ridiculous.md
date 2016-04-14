@@ -4,7 +4,9 @@ title: "The Most Ridiculous Thing"
 date: 2016-04-02
 ---
 
-What follows is a transcription of the first known efforts of Pokemon Field Studies by Professor dsparks:
+What follows is a transcription of the first known efforts of Pokemon Field Studies by Professor dsparks
+
+---
 
 Truly the most ridiculous thing I could think of.
 Change to FALSE if you don't want packages installed.
