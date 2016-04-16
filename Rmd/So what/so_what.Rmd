@@ -1,0 +1,17 @@
+---
+layout: post
+title: "So what?"
+date: 2016-04-02
+---
+  
+So what was Professor dsparks actually doing in the [last post]({{ site.github.url  }}//blog/2016/04/02/ridiculous)?
+
+## Reading webpages
+
+Using `readLines` from `base` takes a connection to a website as one of it's arguments and returns a character vector the length of the lines read. In this case the whole webpage on [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_I)) for first gen pokes. From this he then extracts the table alone from all the html garbarge around it using a function from the `XML` package called `readHTMLTable`. This pulls the table which starts at line 85 called "List of Pokemon by base stats" into `theTable` lis object along with some summary tables.
+
+## Data munging
+
+The data then needs to have its headers and column types fixed, which uses `gsub` to apply some simple regex, then the `as.*` family to convert column types.
+
+##
