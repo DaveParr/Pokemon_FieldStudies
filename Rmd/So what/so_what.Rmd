@@ -63,12 +63,16 @@ From this we can see a few intersting features. As we all found out very quickly
 
 Similarly the main Ghost and Psychic Pokemon, the  Alakazam and Geneger lines, are spread across the top. This is because of their phenomenal combination of Special and Speed (130, 154 and 120, 135 respectively.)
 
-The Legendary Bird Trio are all clustered together, indicative of thier very similar stats. All have a Special of 125, an HP of 90, and only really vary across thier spcialisataions of Defense for Articuno, Speed for Zapdos and Attack for Moltres. 
+The Legendary Bird Trio are all clustered together, indicative of thier very similar stats. All have a Special of 125, an HP of 90, and only really vary a little across thier specialisations of Defense for Articuno, Speed for Zapdos and Attack for Moltres, hence them place closer to the lower axis. 
+
+The middle line of the graph is almost defined as the most average. These pokemon have no obvious specialities. This is best seen in Pokemon 151. Despite how sought after it was, it is in fact the "averagest". Straight 100's across the board. Doesn't get more extremely plain than that!
 
 The extreme edges of the bottom half of the plot all specialise in HP/Attack/Defense. Fatties like Dragonite and Snorlax, Walls such as Cloyster and Golem, and Physical Attackers such as Machamp and Kingler.
 
 ## So what so what?
 
-This is all pretty obvious to anyone between the ages of 25 and 30, however it proves something about the metagame. That in Gen I it was common to have pokemon that had high Special and Speed, or that had high HP, Attack and Defense. It was rare to have a Poke that was a significantly powerful Special user with a lot of bulk. It was also pretty unheard of to have a fast Pokemon with high Defense. If a user had to reduce the variety of the 5 defining charateristics down to something more manageable it was easy to think of the pokemon as either Speedy and Special, or Fat and Physical. The designs display this trait as well. All the skinny alien and ghostly things up top, and the solid rocky, animal like things at the bottom.
+This is all pretty obvious to anyone between the ages of 25 and 30, however it proves something about the metagame. That in Gen I it was common to have pokemon that had high Special and Speed, or that had high HP, Attack and Defense. It was rare to have a Poke that was a significantly powerful Special user with a lot of bulk. It was also pretty unheard of to have a fast Pokemon with high Defense. 
+
+If an aspiring Pokemon Master had to reduce the variety of the 5 defining charateristics down to something more manageable it was easy to think of the pokemon as either Speedy and Special, or Fat and Physical. The designs display this trait as well. All the skinny alien and ghostly things up top, and the solid rocky, animal like things at the bottom.
 
 P.S. PCA is really a fair amount more subtle than this simple description gives it credit. For a a more complete explanation have a look at [setosa.io](http://setosa.io/ev/principal-component-analysis/)
