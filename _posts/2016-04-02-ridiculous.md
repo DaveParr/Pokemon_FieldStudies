@@ -12,9 +12,11 @@ Truly the most ridiculous thing I could think of.
 Change to FALSE if you don't want packages installed.
 
 ```{r}
+{%highlight r%}
 doInstall <- TRUE  
 toInstall <- c("XML", "png", "devtools", "RCurl")
 if(doInstall){install.packages(toInstall, repos = "http://cran.r-project.org")}
+{% endhighlight %}
 ```
 
 ```{r}
