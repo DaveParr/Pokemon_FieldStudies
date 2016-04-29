@@ -11,13 +11,10 @@ What follows is a transcription of the first known efforts of Pokemon Field Stud
 Truly the most ridiculous thing I could think of.
 Change to FALSE if you don't want packages installed.
 
-{% highlight R %}
+``` r
 doInstall <- TRUE  
 toInstall <- c("XML", "png", "devtools", "RCurl")
 if(doInstall){install.packages(toInstall, repos = "http://cran.r-project.org")}
-{% endhighlight R %}
-
-```{r}
 lapply(toInstall, library, character.only = TRUE)
 ```
 
@@ -28,9 +25,7 @@ Some helper functions, lineFinder and makeTable
 source_gist("818983")
 ## Sourcing https://gist.githubusercontent.com/dsparks/818983/raw/315878a59c392a65b176a43c4903b3ede6b67864/LineFinder.R
 ## SHA-1 hash of file is ddeec1de75a917f6a1e0780efb8c99137789a412
-```
 
-```{r}
 source_gist("818986")
 ## Sourcing https://gist.githubusercontent.com/dsparks/818986/raw/2af8efd88307cbbe7941d6be98834f166c56fc61/MakeTable.R
 ## SHA-1 hash of file is 9f922d395b04ac8aadea1e2c6cf91590be6e0d6d
@@ -74,7 +69,6 @@ for(ii in 1:nrow(pokeTable)){
 First time implemented in R
 Look for it on CRAN
 
-
 ```{r}
 iChooseYou <- function(pm){plot(1, 1)  
                            rasterImage(pngList[[pm]], 0.5, 0.5, 1.5, 1.5)                           
@@ -115,8 +109,6 @@ for(ii in 1:length(pngList)){
 
 Optional labels:
 
-
 ```{r}
 text(PCA$x[, 1:2], label = pokeTable$Name, adj = c(1/2, 3))
 ```
-
