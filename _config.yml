@@ -1,4 +1,5 @@
 name: Pokemon Field Studies
-markdown: kramdown
+markdown: kramdown:
+  input: GFM
 permalink: blog/:year/:month/:day/:title
 highlighter: rouge
