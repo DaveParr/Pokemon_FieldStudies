@@ -11,13 +11,13 @@ What follows is a transcription of the first known efforts of Pokemon Field Stud
 Truly the most ridiculous thing I could think of.
 Change to FALSE if you don't want packages installed.
 
-```{r}
 {%highlight r%}
+```{r}
 doInstall <- TRUE  
 toInstall <- c("XML", "png", "devtools", "RCurl")
 if(doInstall){install.packages(toInstall, repos = "http://cran.r-project.org")}
-{% endhighlight %}
 ```
+{% endhighlight %}
 
 ```{r}
 lapply(toInstall, library, character.only = TRUE)
