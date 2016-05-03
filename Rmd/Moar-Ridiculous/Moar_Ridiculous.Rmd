@@ -1,0 +1,74 @@
+---
+layout: post
+title: "Your code evolved!"
+date: 2016-05-03
+---
+
+Let's do some training and apply some new tools to this code!
+
+# A smarter pokedex
+
+Hadley Wickham has released a package called [rvest](https://cran.r-project.org/web/packages/rvest/index.html) since dsparks initial study, so we'll use that to pull the data.
+
+```{r load data}
+library(rvest)
+
+baseStats_Gen1 <- 
+  read_html(
+    x = "http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_I)"
+    ) %>% 
+  html_node(
+    css = "div table"
+    ) %>% 
+  html_table()
+```
+
+The [rvest](https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html) documentation suggests using [SelectorGadget](http://selectorgadget.com/), a webtool for brekaing down web pages by css. I did use this initially, but found that the item classes in this case (e.g "div table") was an acceptable argument whereas with the point and click interface the suggestion was infact ".jquery-tablesorter". This returned an error when run however.
+
+The funny `%>%` operators are 'pipes', initally created in the [magrittr](http://www.r-statistics.com/2014/08/simpler-r-coding-with-pipes-the-present-and-future-of-the-magrittr-package/) package, Hadley uses them exensivly in the [Hadleyverse](http://adolfoalvarez.cl/the-hitchhikers-guide-to-the-hadleyverse/) as they prevent nesting functions and have a straightforward left to right syntax.
+
+So, in a three command one liner we've read the data straight through into a workable `data.frame` format. However, [data.tables](https://cran.r-project.org/web/packages/data.table/index.html) are faster to work with, so lets convert it and fix up those headers.
+
+```{r data munging}
+library(data.table)
+
+baseStats_Gen1 <- as.data.table(baseStats_Gen1)
+
+baseStats_Gen1[, "" := NULL] # Remove second col with only "NA"
+setnames(baseStats_Gen1, 1:2, c("DexNo", "Pokemon")) # Rename cols 1 and 2 to something workable
+```
+
+The first line uses the `data.table` native assignment operator `:=` to assign a value of `NULL`, effectively deleting it. `setnames` is one of the many `set*` family functions which assign in place, without copying a new object, modifying that in RAM, and deleting the original. This is more memory efficient and faster. Not necessarily needed for data at this scale, but doesn't hurt either.
+
+# A better pokeball
+
+The method to grab the urls for each image was pretty complex before. This method refines two areas.
+
+* Has no dependancy on custom gists to modify strings (neat though they are)
+* More efficiently identifies urls by using `html_nodes` and not needing to scrape the full webpage transcript
+
+```{r images}
+library(stringr)
+
+baseStats_Gen1[, imgURL := read_html(
+    x = "http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_I)"
+    ) %>% 
+  html_nodes(
+      css = "#mw-content-text img"
+      ) %>% # css to identify all strings for pokemon urls
+  str_split_fixed(
+    "src=\"", 
+    n = 2
+    ) %>% .[,2] %>% # splits first part out then drops first part
+  str_split_fixed(
+    "\" width=", 
+    n = 2) %>% .[,1]]
+```
+
+This code also uses the `stringr` package to split the strings down at fixed points, returning consice urls via `string_split_fixed` which looks for specific characters and chops them into 2 values at that point. By calling all of this within the data.table we just assign it into each row in order.
+
+```{r png}
+library(RCurl)
+
+baseStats_Gen1[, getURLContent(imgURL)]
+```
