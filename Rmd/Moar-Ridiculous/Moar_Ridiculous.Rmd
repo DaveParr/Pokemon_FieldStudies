@@ -101,19 +101,23 @@ pageTables <-
 pokeType <- html_table(pageTables[c(2,3,4)]) %>%
   rbindlist()
 
-setnames(pokeType, 6, "Type2")
+setnames(pokeType, c(4,6), c("Pokemon", "Type2"))
 pokeType[, DualType := paste(Type, Type2)]
+
+baseStats <- merge(baseStats, pokeType[, .(Pokemon, Type, Type2, DualType)], by = "Pokemon", sort = FALSE)
 ```
 
-Here I use the same httr approach as before, but allow multiple nodes to be returned, giving me 7 "div table" nodes. I then subset down to the useful ones within `html_table`, which gives me a list of 3 data.frames, and collapse them all down to one with a call to data.tables `rbindlist`. 
+Here I use the same httr approach as before, but allow multiple nodes to be returned, giving me 7 "div table" nodes. I then subset down to the useful ones within `html_table`, which gives me a list of 3 data.frames, and collapse them all down to one with a call to data.tables `rbindlist`. This is then subset and merged back onto baseStats.
 
 ```{r ggbiplot2}
-ggbiplot(pokemonPCA, labels = baseStats$Pokemon, groups = pokeType$Type) +
+ggbiplot(pokemonPCA, labels = baseStats$Pokemon, groups = baseStats$Type) +
   ggtitle("Pokemon Gen1 PCA by Primary Type")
 
-ggbiplot(pokemonPCA, labels = baseStats$Pokemon, groups = pokeType$Type2) +
+ggbiplot(pokemonPCA, labels = baseStats$Pokemon, groups = baseStats$Type2) +
   ggtitle("Pokemon Gen1 PCA by Secondary Type")
 
-ggbiplot(pokemonPCA, labels = baseStats$Pokemon, groups = pokeType$DualType) +
+ggbiplot(pokemonPCA, labels = baseStats$Pokemon, groups = baseStats$DualType) +
   ggtitle("Pokemon Gen1 PCA by Combined Type")
 ```
+
+So as I noted before, the Psychic types and ghost types do sit out at the edge of speed and special. Similarly the Rock and Fighting types are clustered at the other edge of the graph. Electric types also push towards the top of the chart due to their Special and Speed stats, but so do other speedy normals, special water attackers, and special bug types.
