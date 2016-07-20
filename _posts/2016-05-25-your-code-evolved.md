@@ -96,7 +96,7 @@ library(ggbiplot)
 ggbiplot(pokemonPCA, labels = baseStats$Pokemon)
 {% endhighlight %}
 
-![plot of chunk ggbiplot]({{ site.github.url  }}/assets/Rfig/ggbiplot-1.svg)
+![plot of chunk ggbiplot](/{{ site.github.url  }}/assets/Rfig/ggbiplot-1.svg)
 
 This functions actually has a number of neat 'ggplot-like' features. One of which is grouping by factor. The most obvious factors in pokemon are their type classifications, so lets get that data.
 
@@ -127,21 +127,21 @@ ggbiplot(pokemonPCA, labels = baseStats$Pokemon, groups = baseStats$Type) +
   ggtitle("Pokemon Gen1 PCA by Primary Type")
 {% endhighlight %}
 
-![plot of chunk ggbiplot2]({{ site.github.url  }}/assets/Rfig/ggbiplot2-1.svg)
+![plot of chunk ggbiplot2](/{{ site.github.url  }}/assets/Rfig/ggbiplot2-1.svg)
 
 {% highlight r %}
 ggbiplot(pokemonPCA, labels = baseStats$Pokemon, groups = baseStats$Type2) +
   ggtitle("Pokemon Gen1 PCA by Secondary Type")
 {% endhighlight %}
 
-![plot of chunk ggbiplot2]({{ site.github.url  }}/assets/Rfig/ggbiplot2-2.svg)
+![plot of chunk ggbiplot2](/{{ site.github.url  }}/assets/Rfig/ggbiplot2-2.svg)
 
 {% highlight r %}
 ggbiplot(pokemonPCA, labels = baseStats$Pokemon, groups = baseStats$DualType) +
   ggtitle("Pokemon Gen1 PCA by Combined Type")
 {% endhighlight %}
 
-![plot of chunk ggbiplot2]({{ site.github.url  }}/assets/Rfig/ggbiplot2-3.svg)
+![plot of chunk ggbiplot2](/{{ site.github.url  }}/assets/Rfig/ggbiplot2-3.svg)
 
 So as I noted before, the Psychic types and ghost types do sit out at the edge of speed and special. Similarly the Rock and Fighting types are clustered at the other edge of the graph. Electric types also push towards the top of the chart due to their Special and Speed stats, but so do other speedy normals, special water attackers, and special bug types.
 
@@ -152,7 +152,7 @@ However, as my friends Paul and Steph pointed out to me last night, PCA is proba
 screeplot(pokemonPCA)
 {% endhighlight %}
 
-![plot of chunk scree plot]({{ site.github.url  }}/assets/Rfig/scree plot-1.svg)
+![plot of chunk scree plot](/{{ site.github.url  }}/assets/Rfig/scree plot-1.svg)
 
 This plot is sometimes referred to as a scree plot, and indicates the successive strength of each of the variables supplied to the PCA. If some of these could be discarded, there would be an obvious drop off where the values on the left were significantly larger than the values on the right([like this](http://fabian-kostadinov.github.io/2015/05/31/pca-in-r/)). This seems to indicate that there is no useful dimensional reduction that can be done on this data.
 
