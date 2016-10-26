@@ -12,14 +12,17 @@ nav ul, footer ul {
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 a {
     text-decoration: none;
     color: #999;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 a:hover {
     text-decoration: underline;
     color: #e60000;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 h1 {
     font-size: 3em;
