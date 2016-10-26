@@ -21,7 +21,7 @@ lapply(toInstall, library, character.only = TRUE)
 Some helper functions, lineFinder and makeTable
 
 
-```{r}
+```r
 source_gist("818983")
 ## Sourcing https://gist.githubusercontent.com/dsparks/818983/raw/315878a59c392a65b176a43c4903b3ede6b67864/LineFinder.R
 ## SHA-1 hash of file is ddeec1de75a917f6a1e0780efb8c99137789a412
@@ -33,7 +33,7 @@ source_gist("818986")
 
 In as few lines as possible, get statistics on each Pokemon
 
-```{r}
+```r
 importHTML <- readLines("http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_I)")
 theTable <- readHTMLTable(importHTML)
 pokeTable <- theTable[[1]][, -2]
@@ -46,7 +46,7 @@ head(pokeTable)
 
 And find URLs for images of each
 
-```{r}
+```r
 pngURLs <- importHTML[lineFinder("http://cdn.bulbagarden.net/upload/",
                                  importHTML)]
 pngURLs <- makeTable(makeTable(pngURLs, "src=\"")[, 2],
@@ -57,7 +57,7 @@ Downloads & loads PNGs and assigns them to a list.
 CAUTION: The following script will literally download 151 .PNG images of
 Pokemon. Please be considerate, and don't run this more than you need to.
 
-```{r}
+```r
 pngList <- list()
 for(ii in 1:nrow(pokeTable)){
   tempName <- pokeTable[ii, "Name"]
@@ -69,7 +69,7 @@ for(ii in 1:nrow(pokeTable)){
 First time implemented in R
 Look for it on CRAN
 
-```{r}
+```r
 iChooseYou <- function(pm){plot(1, 1)  
                            rasterImage(pngList[[pm]], 0.5, 0.5, 1.5, 1.5)                           
                            }
@@ -81,7 +81,7 @@ iChooseYou("Pikachu")
 Principal component analysis
 
 
-```{r}
+```r
 PCA <- prcomp((pokeTable[, 3:7]))
 biplot(PCA)  # To illustrate similarity of dimensions and individuals
 ```
@@ -91,7 +91,7 @@ biplot(PCA)  # To illustrate similarity of dimensions and individuals
 Plot:
 
 
-```{r}
+```r
 boxParameter <- 5  
 plot(PCA$x, type = "n",
      xlab = "Overall stats >",
@@ -109,6 +109,6 @@ for(ii in 1:length(pngList)){
 
 Optional labels:
 
-```{r}
+```r
 text(PCA$x[, 1:2], label = pokeTable$Name, adj = c(1/2, 3))
 ```
