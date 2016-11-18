@@ -25,12 +25,15 @@ a:hover {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 @font-face {
-    font-family: Pokemon-Font;
-    src: url(pokemon_gb.ttf);
+    font-family: 'pokemon_gbregular';
+    src: url('pokemon_gb-webfont.woff2') format('woff2'),
+         url('pokemon_gb-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 h1 {
     font-size: 3em;
-    font-family:Pokemon-Font, 'Arial', 'Sans-Serif';
+    font-family:'pokemon_gbregular', 'Arial', 'Sans-Serif';
 }
 h2 {
     font-size: 2.5em;
