@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'pokemon_gbregular';
+    src: url('pokemon_gb-webfont.woff2') format('woff2'),
+         url('pokemon_gb-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 body {
     margin: 60px auto;
     width: 70%;
@@ -33,13 +40,6 @@ a:hover {
 a.PostsLink{
     font-family:'pokemon_gbregular', 'Arial', 'Sans-Serif';
 }
-@font-face {
-    font-family: 'pokemon_gbregular';
-    src: url('pokemon_gb-webfont.woff2') format('woff2'),
-         url('pokemon_gb-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 h1 {
     font-size: 3em;
     font-family:'pokemon_gbregular', 'Arial', 'Sans-Serif';
@@ -64,12 +64,6 @@ p {
     color: #333;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
-footer {
-    border-top: 1px solid #d5d5d5;
-    font-size: .8em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-}
-
 ul.posts {
     margin: 20px auto 40px;
 }
@@ -86,4 +80,9 @@ ul.posts li {
 .highlight {
   font-size: 1.5em;
   line-height: 1.4em;
+}
+footer {
+    border-top: 1px solid #d5d5d5;
+    font-size: .8em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
