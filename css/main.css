@@ -12,6 +12,7 @@ body {
 }
 nav{
     background-color: #e60000;
+    border-bottom: 10px solid black;
     width: 100%;
     padding: 25px;
     margin: 0px;
