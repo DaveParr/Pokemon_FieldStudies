@@ -30,6 +30,9 @@ a:hover {
     color: #e60000;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
+a.PostsLink{
+    font-family:'pokemon_gbregular', 'Arial', 'Sans-Serif';
+}
 @font-face {
     font-family: 'pokemon_gbregular';
     src: url('pokemon_gb-webfont.woff2') format('woff2'),
