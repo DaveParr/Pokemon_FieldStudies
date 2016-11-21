@@ -13,6 +13,7 @@ body {
 nav{
     background-color: #e60000;
     border-bottom: 10px solid black;
+    border-radius: 25px 25px  0 0 ;
     width: 100%;
     padding: 25px;
     margin: 0px;
@@ -35,7 +36,7 @@ a {
 }
 a:hover {
     text-decoration: underline;
-    color: #999;
+    color: #e60000;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 a.PostsLink{
