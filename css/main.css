@@ -14,6 +14,7 @@ nav{
     background-color: #e60000;
     border-bottom: 10px solid black;
     border-radius: 25px 25px  0 0 ;
+    width: 100%;
     padding: 25px;
     margin: 0px;
 }
@@ -64,6 +65,9 @@ p {
     line-height: 1.4em;
     color: #333;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
+}
+p.meta{
+  font-family:'pokemon_gbregular', 'Arial', 'Sans-Serif';
 }
 ul.posts {
     margin: 20px auto 40px;
