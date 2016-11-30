@@ -45,6 +45,7 @@ a.PostsLink{
 h1 {
     font-size: 3em;
     font-family:'pokemon_gbregular', 'Arial', 'Sans-Serif';
+    padding:0.5em;
 }
 h2 {
     font-size: 2.5em;
