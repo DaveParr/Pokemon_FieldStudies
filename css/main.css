@@ -71,11 +71,10 @@ ul.posts {
 }
 
 ul.posts li {
-    list-style: circle;
+    list-style: none;
     line-height: 1.5em;
     font-size: 1.5em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    color: #333;
     font-family:'pokemon_gbregular', 'Arial', 'Sans-Serif';
 }
 
@@ -87,4 +86,15 @@ footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
+}
+.posts {
+  border-radius: 2px;
+  padding: 8px;
+  line-height: 16px;
+  margin: auto;
+  border: 1px solid white;
+  box-shadow: 0 1px 0 1px black,
+              inset 0 1px 0 1px black,
+              0 0 0 1px black,
+              inset 0 0 0 1px black;
 }
