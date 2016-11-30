@@ -30,6 +30,9 @@ nav ul li, footer ul li{
 nav a{
     font-family:'pokemon_gbregular', 'Arial', 'Sans-Serif';
 }
+nav a:hover{
+    font-family:'pokemon_gbregular', 'Arial', 'Sans-Serif';
+}
 a {
     text-decoration:underline;
     color: black;
